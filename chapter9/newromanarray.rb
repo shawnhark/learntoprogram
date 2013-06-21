@@ -14,11 +14,9 @@ roman = ''
 # thousands
 roman = roman + 'M' * m
 # digit array
-digits = [
-		[(c), 'CM', 'D', 'C', 'CD']
-		[(x), 'XC', 'L', 'X', 'XL']
-		[(i), 'IX', 'V', 'I', 'IV']
-			]
+digits = [[c, 'CM', 'D', 'C', 'CD'],
+		[x, 'XC', 'L', 'X', 'XL'],
+		[i, 'IX', 'V', 'I', 'IV']]
 digits.each do
 	if [0] == 9
 		roman = roman + [1]
