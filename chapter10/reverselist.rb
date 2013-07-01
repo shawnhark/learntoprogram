@@ -23,4 +23,4 @@ def sort arr
 	end
 end
 puts 'Here is your sorted list:'
-puts(sort(unsorted))
+puts(sort[unsorted])

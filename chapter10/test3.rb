@@ -1,4 +1,6 @@
 items = ['first', 'second', 'third']
+puts items.shuffle
+
 random = items.length
 shuffle = rand(random)
 puts items[shuffle]

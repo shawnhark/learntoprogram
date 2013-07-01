@@ -1,4 +1,4 @@
-#sorting program
+#Dictionary sorting program
 def sort arr
   recsort arr, []
 end
@@ -12,7 +12,7 @@ def recsort unsorted, sorted
   stillunsorted = []
 
   unsorted.each do |testedobject|
-    if testedobject < smallest
+    if testedobject.downcase < smallest.downcase
       stillunsorted.push smallest
       smallest = testedobject
     else
@@ -24,4 +24,4 @@ def recsort unsorted, sorted
   recsort stillunsorted, sorted
 end
 
-puts(sort(['boat','zebra','dog','boat','apple','fish']))
+puts(sort(['boat','Zebra','Dog','Boat','apple','fish']))

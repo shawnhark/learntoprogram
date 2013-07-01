@@ -1,39 +1,42 @@
+#enter words to sort
 def sort arr
-	rec_sort arr, []
+  recsort arr, []
 end
-def rec_sort unsorted, sorted
-	if unsorted.length <= 0
-		return sorted
-	end
 
-	smallest = unsorted.pop
-	still_unsorted = []
+def recsort unsorted, sorted
+  if unsorted.length <= 0
+    return sorted
+  end
 
-	unsorted.each do |tested_object|
-		if tested_object < smallest
-			still_unsorted.push smallest
-			smallest = tested_object
-		else
-			still_unsorted.push tested_object
-		end
-		sorted.push smallest
-		rec_sort still_unsorted, sorted
-	end
+  smallest = unsorted.pop
+  stillunsorted = []
+
+  unsorted.each do |testedobject|
+    if testedobject < smallest
+      stillunsorted.push smallest
+      smallest = testedobject
+    else
+      stillunsorted.push testedobject
+    end
+
+  end
+  sorted.push smallest
+  recsort stillunsorted, sorted
 end
 
 puts 'This will create a list of words in reverse alphabetical order.'
 puts 'To finish and print, leave line blank.'
 puts
-unsorted = []
+original_list = []
 puts 'Please add a word to the list:'
 newword = gets.chomp
 while newword != ''
-	unsorted.push newword
-	puts 'Please add another word to the list:'
-	newword = gets.chomp
+  original_list.push newword
+  puts 'Please add another word to the list:'
+  newword = gets.chomp
 end
 puts 'Here is your unsorted list of words:'
-puts unsorted
+puts original_list
 puts
 puts 'Here is your sorted list:'
-puts(sort([unsorted]))
+puts(sort([original_list]))
