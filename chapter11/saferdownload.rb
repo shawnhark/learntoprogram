@@ -1,19 +1,16 @@
-Dir.chdir 'C:/Documents and Settings/Katy/PictureInbox'
+Dir.chdir '**/Temp/newimages'
 
-# First we find all of the pictures to be moved.
-pic_names = Dir['F:/**/*.{JPG,jpg}']
+pic_names = Dir['**/shawnharkness/Documents/Intro to Rails/Temp/images/*.{JPG,jpg, JPEG, jpeg}']
 
 puts 'What would you like to call this batch?'
 batch_name = gets.chomp
 
 puts
 print "Downloading #{pic_names.length} files: "
-# This will be our counter. We'll start at 1 today,
-# though normally I like to count from 0.
 pic_number = 1
 
 pic_names.each do |name|
-  print '.' # This is our "progress bar".
+  print '.' 
 
   new_name = if pic_number < 10
     "#{batch_name}0#{pic_number}.jpg"
@@ -21,9 +18,15 @@ pic_names.each do |name|
   "#{batch_name}#{pic_number}.jpg"
   end
 
+while FileTest.exist? new_name
+new_name += 'a'
+new_name = new_name + '.jpg'
+end
+
 File.rename name, new_name
-# Finally, we increment the counter.
+
 pic_number = pic_number + 1
 end
 puts
 puts 'File transfers done.'
+
